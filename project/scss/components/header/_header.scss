@@ -1,0 +1,69 @@
+@use '../../base/vareables' as *;
+@use '../../base/mixin' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: $hero-from;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: $white;
+  padding: 12px 24px;
+  border-radius: 0 0 16px 16px;
+  box-shadow: $shadow;
+
+  &__menu {
+    display: none;
+    gap: 48px;
+    font-size: 14px;
+    @include md {
+      display: flex;
+    }
+    a {
+      position: relative;
+      transition: color var(--transition);
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width var(--transition);
+      }
+      &:hover {
+        color: var(--primary);
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+    @include lg {
+      gap: 24px;
+    }
+  }
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+@include mobile {
+  .nav {
+    padding: 10px 12px;
+  }
+  .nav__actions a {
+    display: none;
+  }
+}

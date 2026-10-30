@@ -1,0 +1,43 @@
+@use 'vareables' as *;
+
+@mixin xl {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+
+@mixin flex($justify: center, $align: center, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+@mixin hover-lift {
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px -10px rgba(110, 30, 110, 0.35);
+  }
+}

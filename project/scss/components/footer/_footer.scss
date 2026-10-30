@@ -1,0 +1,40 @@
+@use '../../base/vareables' as *;
+@use '../../base/mixin' as *;
+
+.footer {
+  margin-top: 40px;
+  border-top: 1px solid rgba($muted, 0.5);
+  &__inner {
+    display: grid;
+    gap: 40px;
+    padding: 40px 24px;
+    @include md {
+      grid-template-columns: 1fr auto auto;
+      gap: 64px;
+    }
+  }
+  &__text {
+    margin-top: 24px;
+    max-width: 320px;
+    font-size: 14px;
+  }
+  .socials {
+    margin-top: 40px;
+  }
+  h4 {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  ul {
+    margin-top: 24px;
+    font-size: 14px;
+    text-transform: uppercase;
+    li + li {
+      margin-top: 16px;
+    }
+    a:hover {
+      color: $primary;
+    }
+  }
+}

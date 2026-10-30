@@ -1,0 +1,148 @@
+@use 'vareables' as *;
+@use 'mixin' as *;
+
+.container {
+  max-width: $container;
+  margin: 0 auto;
+  padding: 0 24px;
+  @include xl {
+    max-width: 1440px;
+  }
+  @include mobile {
+    padding: 0 12px;
+  }
+}
+.logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--logo);
+}
+.btn {
+  display: inline-block;
+  background: $primary;
+  color: $white;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font:
+    600 14px 'Montserrat',
+    sans-serif;
+  cursor: pointer;
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+  &:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+.socials {
+  display: flex;
+  gap: 8px;
+  a {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: $brand;
+    display: grid;
+    place-items: center;
+    img {
+      width: 14px;
+      height: 14px;
+    }
+  }
+  &--muted a {
+    background: rgba($muted, 0.7);
+  }
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: $border;
+    &.active {
+      background: $dot-1;
+    }
+  }
+}
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $brand;
+    @include md {
+      font-size: 30px;
+    }
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-top: 1px dashed $muted;
+    }
+  }
+}
+.grid-3 {
+  display: grid;
+  gap: 24px;
+  margin-top: 16px;
+  @include md {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.card {
+  @include hover-lift;
+  background: $white;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: $shadow;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-18px) rotate(3deg);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

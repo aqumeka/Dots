@@ -1,0 +1,21 @@
+@use '../../base/vareables' as *;
+@use '../../base/mixin' as *;
+
+.contact {
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+    @include tablet {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__map {
+    width: 100%;
+    min-height: 320px;
+    border: 0;
+    border-radius: var(--radius);
+    box-shadow: $shadow;
+  }
+}

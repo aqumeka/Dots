@@ -1,0 +1,41 @@
+@use '../../base/vareables' as *;
+@use '../../base/mixin' as *;
+
+.customers__grid {
+  display: grid;
+  gap: 32px;
+  margin-top: 64px;
+  @include md {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.review {
+  background: $white;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow:
+    $shadow,
+    0 4px 0 0 #f5c2ec;
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__name {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__city {
+    font-size: 12px;
+  }
+  &__text {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+}
